@@ -1,0 +1,23 @@
+<div class="register">
+    <div class="top">
+        <div class="wrapper">
+            
+            <img class="logo" src="../../assets/fletnix_logo.png" alt="Logo Here">
+            <button class="loginButton" (click)="goToLogin()">Sign In</button>
+        </div>
+    </div>
+    <div class="containerRegister">
+        <h1>Unlimited BROWSING of Movies and TV shows.</h1>
+        <h2>Watch on NETFLIX. search Here.</h2>
+        <p>Ready to Browse? Enter your email to create or restart your membership.</p>
+        <div class="inputForm">
+            <form class="input" (ngSubmit)="onSubmit()">
+                <input type="text" placeholder="Name" [(ngModel)]="user.name" name="name" required>
+                <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required>
+                <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+                <input type="number" placeholder="Age" [(ngModel)]="user.age" name="age" required>
+                <button type="submit" class="registerButton">Register</button>
+            </form>
+        </div>
+    </div>
+</div>

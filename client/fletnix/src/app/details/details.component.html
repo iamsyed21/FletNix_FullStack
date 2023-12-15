@@ -1,0 +1,48 @@
+<div class="details-page">
+    <button class="back-button" (click)="goBack()">&larr; Back</button>
+  
+    <div class="content-card">
+      <div class="content-header">
+        <h2 class="title">{{ contentData.title }}</h2>
+        <span class="tag" [ngClass]="{'movie-tag': contentData.type === 'Movie', 'show-tag': contentData.type === 'TV Show'}">{{ contentData.type }}</span>
+      </div>
+  
+      <div class="content-meta">
+        <span class="release-year">{{ contentData.release_year }}</span> |
+        <span class="rating">{{ contentData.rating }}</span> |
+        <span class="duration">{{ contentData.duration }}</span>
+      </div>
+  
+      <p class="description">{{ contentData.description }}</p>
+  
+      <div class="director-cast-row">
+        
+        <div class="director" *ngIf="contentData.director !== 'Not Available'">
+            <h3>Director:</h3>
+            <ul>
+                <li>
+                    <a href="https://www.google.com/search?q={{ contentData.director }}" target="_blank">{{ contentData.director }}</a>
+                </li>
+            </ul>
+         
+        </div>
+  
+        <div class="cast" *ngIf="contentData.cast.length">
+          <h3>Cast</h3>
+          <ul>
+            <li *ngFor="let actor of contentData.cast">
+              <a href="https://www.google.com/search?q={{ actor }}" target="_blank">{{ actor }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      <div class="categories">
+        <h3>Categories</h3>
+        <div class="category-tags">
+          <span *ngFor="let category of contentData.category">{{ category }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

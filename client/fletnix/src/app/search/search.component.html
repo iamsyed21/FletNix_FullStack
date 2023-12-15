@@ -1,0 +1,51 @@
+<div class="search-section">
+  <div class="search-box">
+    <input type="text" placeholder="Search titles" (input)="search($any($event.target).value)">
+    <i class="fas fa-search search-icon"></i>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="shimmer-container">
+
+</div>
+
+<ng-container *ngIf="searchPerformed; else startSearchMessage">
+<ng-container *ngIf="contents.length > 0; else noResultsTemplate">
+  <div class="content-grid">
+    <div class="content-card" *ngFor="let content of contents">
+      <div class="card-header">
+        <h3 class="title">{{ content.title }}</h3>
+        <span class="type" [ngClass]="{'movie': content.type === 'Movie', 'tv-show': content.type === 'TV Show'}">{{ content.type }}</span>
+      </div>
+      <p class="description">{{ content.description | slice:0:60 }}...</p>
+      <div class="details-match">
+        <button class="more-details-btn" (click)="onMoreDetails(content)">More details</button>
+        <span class="match">{{ randomMatchPercentage() }}% Match</span>
+      </div>
+      <div class="info">
+        <span>{{ content.release_year }}</span>
+        <span>{{ content.duration }}</span>
+        <span class="rating">{{ content.rating }}</span>
+      </div>
+      <div class="categories">
+        <ng-container *ngIf="content.category.length; else noCategory">
+          <span *ngFor="let cat of content.category | slice:0:2">{{ cat }}</span>
+        </ng-container>
+        <ng-template #noCategory>No categories available</ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="previousPage()">Previous</button>
+    <button (click)="nextPage()">Next</button>
+  </div>
+</ng-container>
+</ng-container>
+
+<ng-template #noResultsTemplate>
+<p class="noResults">No results available for "{{ currentSearchTerm }}"</p>
+</ng-template>
+
+<ng-template #startSearchMessage>
+<p class="noResults">Please, start searching to see the results</p>
+</ng-template>

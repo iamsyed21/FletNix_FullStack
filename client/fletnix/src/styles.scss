@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+body, p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    /* Set background to match your app's theme */
+    background-color: #141414; 
+
+     // Base font size
+  
+    @media (max-width: 768px) {
+      font-size: 14px; // Slightly smaller font size for mobile devices
+    }
+}
+
+
+html, body { height: 100%; }
+
+
+

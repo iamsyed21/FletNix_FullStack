@@ -1,0 +1,24 @@
+<div class="profiles-container">
+  <img class="logo" src="../../assets/fletnix_logo.png" alt="Logo" />
+  <h2>Who's Watching?</h2>
+  <button *ngIf="profiles.length < 4" class="add-profile-btn" (click)="toggleAddProfileForm()">+</button>
+
+  <div *ngIf="showAddProfileForm" class="add-profile-form">
+    <input type="text" placeholder="Profile Name" #profileName>
+    <input type="number" placeholder="Age" #profileAge>
+    <button (click)="addProfile(profileName.value, convertToNumber(profileAge.value))">Add Profile</button>
+  </div>
+
+  <div class="profiles">
+    <div *ngFor="let profile of profiles" class="profile-card" (click)="selectProfile(profile._id)">
+      <p>{{ profile.profileName }}</p>
+      <p>Age: {{ profile.age }}</p>
+    </div>
+  </div>
+
+  <div class="extratext">
+    <h2>
+      Note: Up to 4 profiles are allowed per Account!
+    </h2>
+  </div>
+</div>

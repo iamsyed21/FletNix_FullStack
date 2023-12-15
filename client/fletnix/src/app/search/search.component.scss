@@ -1,0 +1,243 @@
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 2em 1.5em;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr); // 4 columns for slightly smaller screens
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr); // 3 columns for tablets
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr); // 2 columns for smaller tablets and large phones
+  }
+}
+
+.content-card {
+  background-color: #333; // Dark background
+  color: #fff; // Light text for contrast
+  border: 1px solid #555; // Subtle border
+  border-radius: 10px; // Subtle border radius
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1); // Default scale
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Default box-shadow
+
+  &:hover {
+    transform: scale(1.05); // Scaled up slightly on hover
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); // More pronounced shadow on hover
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .type {
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: #000000;
+
+      &.movie {
+        background-color: #90ee90; // Easy green for Movie
+      }
+
+      &.tv-show {
+        background-color: #ffa07a; // Easy orange for TV Show
+      }
+    }
+  }
+
+  .description {
+    color: #aaa; // Slightly dimmed text for description
+    margin: 10px 0;
+  }
+
+  .details-match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    .more-details-btn {
+      background-color: #444;
+      color: #fff;
+      border: none;
+      font-size: 20px;
+        font-weight: bold;
+        
+        border: 1px solid gray;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #666;
+      }
+    }
+
+    .match {
+      font-weight: bold;
+      color: #4caf50; // Highlighted text for match percentage
+    }
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #555; // Border for the rating
+    padding-bottom: 10px;
+    
+    .rating {
+      border: 1px solid #fff; // White border for rating
+      padding: 3px;
+    }
+  }
+
+  .categories {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
+}
+
+
+.shimmer-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.shimmer {
+  background: #f6f7f8;
+  height: 100px;
+  animation: shimmer 2s infinite;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, transparent 0%, #eaeaea 50%, transparent 100%);
+    animation: loading 1.5s infinite;
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+  50% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 15px;
+
+  button {
+    background-color: #e50914; 
+    border: 2px solid #e50914; 
+    border-radius: 4px; 
+    padding: 12px 30px; 
+    font-size: 1rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+
+    &:hover {
+      background-color: white; 
+      color: #e50914;
+      border-color: white; 
+      transform: scale(1.03); 
+    }
+
+    &:focus {
+      outline: none; 
+    }
+
+    &:active {
+      transform: scale(0.97); 
+    }
+  }
+}
+
+
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  padding-top: 2em;
+  padding-bottom: 1em;
+  position: relative;
+  width: 100%; 
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    width: 50%; 
+    margin-top: 4em;
+    max-width: 600px; 
+    background-color: #fff;
+    border-radius: 25px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    input[type="text"] {
+      flex-grow: 1; 
+      padding: 1rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 25px; 
+      outline: none;
+
+      &::placeholder {
+        color: #888;
+      }
+    }
+
+    .search-icon {
+      padding: 1rem;
+      color: #1f1f1f;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+  }
+}
+
+
+.noResults{
+  text-align: center;
+  color: white;
+  font-size: 3.5em;
+  padding-top: 50px;
+}

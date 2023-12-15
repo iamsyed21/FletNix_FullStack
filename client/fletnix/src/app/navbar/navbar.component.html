@@ -1,0 +1,28 @@
+<nav class="navbar">
+  
+  
+
+  <div class="navbar-links">
+    <a class="navbar-logo" routerLink="/" *ngIf="isLargeScreen">
+      <img class="logo" src="../../assets/fletnix_logo.png" alt="Logo Here">
+    </a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="navbar-link">HOME</a>
+    <a routerLink="/series" routerLinkActive="active" class="navbar-link">TV SHOWS</a>
+    <a routerLink="/movies" routerLinkActive="active" class="navbar-link">MOVIES</a>
+  </div>
+
+
+  <a routerLink="/search" class="search-icon">
+   Search  <i class="fas fa-search"></i>
+  </a>
+  
+  <div class="dropdown">
+
+    <button class="dropbtn" *ngIf="isLargeScreen">{{ profileName }}</button>
+    <button class="dropbtn" *ngIf="!isLargeScreen">☰</button>
+    <div class="dropdown-content">
+      <a routerLink="/profile-selection">Profile-select</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </div>
+</nav>

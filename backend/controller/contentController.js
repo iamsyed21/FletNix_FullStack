@@ -145,3 +145,41 @@ export const getCategoriesByType = async (req, res) => {
       res.status(500).json({ message: error.message });
   }
 };
+
+export const searchContent = async (req, res) => {
+  const { profileId, search, page = 1, limit = 15 } = req.query;
+
+  try {
+    const user = await User.findOne({ 'profiles._id': profileId });
+    if (!user) {
+        return res.status(404).json({ message: 'Profile not found' });
+    }
+
+    const profile = user.profiles.id(profileId);
+    if (!profile) {
+        return res.status(404).json({ message: 'Profile not found' });
+    }
+
+    let query = {};
+    if (search) {
+      
+      query.$or = [
+        { title: { $regex: search, $options: 'i' } },
+        { cast: { $regex: search, $options: 'i' } }
+      ];
+    }
+
+    const ageRestricted = profile.age < 18;
+    if (ageRestricted) {
+        query.rating = { $ne: 'R' };
+    }
+
+    const contentItems = await Content.find(query)
+                                      .limit(parseInt(limit))
+                                      .skip(parseInt(limit) * (page - 1));
+
+    res.json(contentItems);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

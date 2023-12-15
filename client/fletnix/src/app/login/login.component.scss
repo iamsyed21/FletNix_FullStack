@@ -1,0 +1,230 @@
+.login {
+    
+    
+    height: 100vh;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 1) 100%
+      ),
+      url("https://assets.nflxext.com/ffe/siteui/vlv3/42df4e1f-bef6-499e-87ff-c990584de314/5e7c383c-1f88-4983-b4da-06e14c0984ba/IN-en-20230904-popsignuptwoweeks-perspective_alpha_website_medium.jpg");
+      
+   
+      background-size: cover;
+  
+    .top {
+      .wrapper {
+        padding: 40px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        .logo {
+          height: 80px;
+        }
+      }
+    }
+  
+    .mainLogin{
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      flex-direction: column; 
+    .containerLogin {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.78);
+      
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+
+      h1{
+        font-weight: bold;
+        font-size: 2.2em;
+      }
+  
+      form {
+        
+        width: 400px;
+        height: 375px;
+        padding: 20px;
+        border-radius: 5px;
+        background-color: var(--main-color);
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        justify-content: space-around;
+  
+        input {
+          height: 60px;
+          border-radius: 5px;
+          background-color: gray;
+          color: white;
+          cursor:text;
+          padding-left: 10px;
+  
+          &::placeholder {
+            color: lightgray;
+          }
+        }
+  
+        button {
+          height: 50px;
+          border-radius: 5px;
+          background-color: red;
+          color: white;
+          border: none;
+          font-size: 18px;
+          font-weight: 500;
+          cursor: pointer;
+        }
+  
+        span {
+          color: lightgray;
+          b {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+  }
+
+
+  .introBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    align-content: center;
+    padding: 20px;
+    padding-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.78);
+    color: aliceblue;
+    flex-direction: column;
+
+    h1{
+     font-size: 2em;
+    }
+    p{
+      font-size: 1.2em;
+      text-align: center;
+    }
+  }
+
+
+
+
+  .wave {
+    animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+    animation-duration: 2.5s;        /* Change to speed up or slow down */
+    animation-iteration-count: infinite;  /* Never stop waving :) */
+    transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+    display: inline-block;
+  }
+  
+  @keyframes wave-animation {
+      0% { transform: rotate( 0.0deg) }
+     10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+     20% { transform: rotate(-8.0deg) }
+     30% { transform: rotate(14.0deg) }
+     40% { transform: rotate(-4.0deg) }
+     50% { transform: rotate(10.0deg) }
+     60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+    100% { transform: rotate( 0.0deg) }
+  }
+
+
+  .thankyouforvisiting{
+    font-size: 14px;
+    text-decoration: underline;
+    padding: 4px;
+  }
+
+  .logo22323{
+    width: 160px;
+    padding: 20px;
+  }
+
+
+  .mainInfo{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: beige;
+    font-family: sans-serif;
+  }
+
+.thankyou{
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+
+.disclaimer{
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.7;
+  padding: 10px;
+}
+
+
+// Phones (Extra Small)
+// Small devices (576px and up)
+@media (min-width: 576px) {
+  .login {
+    background-color: black; // For example, apply the background color to the body element
+  }
+}
+
+// Medium devices (768px and up)
+@media (min-width: 768px) {
+  .login {
+    background-color: red; // For example, apply the background color to the body element
+  }
+}
+
+// Large devices (992px and up)
+@media (min-width: 992px) {
+  .login {
+    background-color: green; // For example, apply the background color to the body element
+  }
+}
+
+
+.loadingBox{
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid white;
+  margin: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: wheat;
+  border-radius: 8px;
+}
+
+.signup-prompt {
+  color: #fff; // White color for the text
+  font-size: 16px; // Adjust as needed
+  text-align: center; // Center align the text
+  margin: 20px 0; // Add some space around the paragraph
+
+  .signup-link {
+    color: #e50914; // Netflix red for the link
+    font-weight: bold; // Make the link bold
+    text-decoration: none; // No underline for the link
+
+    &:hover {
+      text-decoration: underline; // Underline on hover for better user interaction
+    }
+  }
+}

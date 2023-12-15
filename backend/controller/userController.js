@@ -1,4 +1,6 @@
 import User from "../models/users.js";
+import generateToken from "../utilities/tokenGeneration.js";
+
 
 export const createUser = async (req, res) => {
     const { name, email, password, role, age } = req.body;
@@ -26,7 +28,13 @@ export const createUser = async (req, res) => {
       });
   
       const createdUser = await user.save();
-      res.status(201).json(createdUser.toJSON());
+      const token = generateToken(createdUser._id, createdUser.role);
+      
+      res.status(201).json({
+                user: createdUser.toJSON(),
+                token: token
+            });
+      
     } catch (error) {
       res.status(500).json({ message: error.message });
     }

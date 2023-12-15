@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+
 import User from '../models/users.js';
 import generateToken from '../utilities/tokenGeneration.js';
 
@@ -9,12 +9,14 @@ export const loginUser = async (req, res) => {
 
     try {
         const user = await User.findOne({ email });
-        if (user && (await user.matchPasswords(password))) { 
-            generateToken(res, user._id, user.role);
-            res.status(200).json(user.toJSON());
+        if (user && (await user.matchPasswords(password))) {
+            const token = generateToken(user._id, user.role);
+            res.status(200).json({
+                user: user.toJSON(),
+                token: token
+            });
         } else {
-            res.status(401);
-            throw new Error('Invalid email or password');
+            res.status(401).json({ message: 'Invalid email or password' });
         }
     } catch (error) {
         res.status(500).json({ message: error.message });
