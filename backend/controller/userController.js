@@ -145,3 +145,31 @@ export const deleteUser = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+
+// Test Cases for User Controller:
+// Create User:
+
+// Description: Test user registration.
+// Request: Send a POST request to user creation endpoint with user details.
+// Expected Result: Response status is 201 with user data and token.
+// Add Profile to User:
+
+// Description: Test adding a profile to an existing user.
+// Request: Send a POST request to add a profile with profile details.
+// Expected Result: Response status is 201, and the user data with the new profile is returned.
+// Get User by ID:
+
+// Description: Test retrieving a user by ID.
+// Request: Send a GET request to the user retrieval endpoint with a specific user ID.
+// Expected Result: Response status is 200 with the user's data.
+// Update User:
+
+// Description: Test updating a user's details.
+// Request: Send a PUT request to the user update endpoint with updated user details.
+// Expected Result: Response status is 200 with updated user data.
+// Delete User:
+
+// Description: Test deleting a user.
+// Request: Send a DELETE request to the user deletion endpoint with a specific user ID.
+// Expected Result: Response status is 200 with a 'User removed' message.

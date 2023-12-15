@@ -24,7 +24,9 @@
                         <input type="password" placeholder="Password" [(ngModel)]="loginData.password" name="password" required>
                         <button type="submit" class="loginButton">Sign In</button>
                         <p class="signup-prompt">
-                            New to Fletnix? <a href="register" class="signup-link">Sign up now.</a>
+                            New to Fletnix? 
+                            
+                            <a routerLink="/register" class="signup-link" routerLinkActive="active" >Sign up now.</a>
                           </p>
                        
                         <P class="disclaimer">Disclaimer: This Fletnix application is developed for assessment/portfolio work, 

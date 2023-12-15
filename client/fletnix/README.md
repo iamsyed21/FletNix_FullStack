@@ -1,4 +1,16 @@
-# Fletnix
+# Fletnix Frontend
+
+Welcome to the frontend of Fletnix, a MEAN stack-based streaming service with a user interface inspired by Netflix.
+
+## Features
+
+- Angular-based dynamic UI
+- Multi-profile creation for enhanced user experience
+- Advanced search functionality and category-based filtering
+- Responsive design with Netflix-like aesthetics.
+
+---
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
 

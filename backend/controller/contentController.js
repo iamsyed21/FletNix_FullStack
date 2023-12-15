@@ -183,3 +183,26 @@ export const searchContent = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+// Test Cases for Content Controller:
+// Create Content:
+
+// Description: Test creating new content.
+// Request: Send a POST request to content creation endpoint with valid content data.
+// Expected Result: Response status is 201, and the created content is returned.
+// Update Content:
+
+// Description: Test updating existing content.
+// Request: Send a PUT request to the content update endpoint with updated content data.
+// Expected Result: Response status is 200, and the updated content is returned.
+// Delete Content:
+
+// Description: Test deleting content.
+// Request: Send a DELETE request to the content deletion endpoint for a specific content ID.
+// Expected Result: Response status is 200 with a 'Content removed' message.
+// Get Content with Filters:
+
+// Description: Test retrieving content with filters.
+// Request: Send a GET request to the content retrieval endpoint with query parameters for filtering.
+// Expected Result: Response status is 200 with a list of filtered content.

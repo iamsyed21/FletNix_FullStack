@@ -12,11 +12,14 @@ export class AppComponent implements OnInit {
   title = 'fletnix';
 
   showNavbar: boolean = true;
+  showFooter: boolean = true;
 
   constructor(private router: Router, private apiService: ApiService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.showNavbar = !['/login', '/register', '/profile-selection'].includes(event.urlAfterRedirects);
+        const hideOnRoutes = ['/login', '/register', '/profile-selection'];
+        this.showNavbar = !hideOnRoutes.includes(event.urlAfterRedirects);
+        this.showFooter = !hideOnRoutes.includes(event.urlAfterRedirects);
       }
     });
   }
