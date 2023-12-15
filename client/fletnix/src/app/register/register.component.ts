@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class RegisterComponent implements OnInit {
   user = { name: '', email: '', password:'', age: null };
+  isLoading = false;
 
   constructor(private apiService: ApiService, 
     private contextService: ContextService,  
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    this.isLoading = true;
     this.apiService.registerUser(this.user).subscribe({
       next: (response) => {
         const { token, user } = response;
@@ -49,10 +51,12 @@ export class RegisterComponent implements OnInit {
           isAuthenticated: true,
           token: token 
         });
+        this.isLoading = false;
       this.openSnackBar('Success! Login in now', 'Close');
        this.router.navigate(['/profile-selection']);
       },
       error: (error) => {
+        this.isLoading = false;
         this.openSnackBar('Something Went wrong! Please try again later', 'Close');
         console.error('Error:', error);
       }

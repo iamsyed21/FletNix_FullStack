@@ -14,17 +14,17 @@ export class ApiService {
   constructor(private http: HttpClient, private contextService: ContextService, private router: Router) { }
 
   registerUser(userData: any) {
-    return this.http.post<any>('http://localhost:5000/api/signup', userData);
+    return this.http.post<any>('https://fletnix-api-nap0.onrender.com/api/signup', userData);
   }
 
   loginUser(userData: any) {
-    return this.http.post<any>('http://localhost:5000/api/auth/login', userData);
+    return this.http.post<any>('https://fletnix-api-nap0.onrender.com/api/auth/login', userData);
   }
 
   getCategories(contentType: string): Observable<string[]> {
     const token = this.contextService.getContext().token;
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-    return this.http.get<string[]>(`http://localhost:5000/api/content/categories`, { 
+    return this.http.get<string[]>(`https://fletnix-api-nap0.onrender.com/api/content/categories`, { 
       headers: headers,
       params: new HttpParams().set('type', contentType)
     });
@@ -48,7 +48,7 @@ export class ApiService {
   
     if (token) {
       const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-      return this.http.get<{ name: string }[]>(`http://localhost:5000/api/content/getContent`, { headers, params });
+      return this.http.get<{ name: string }[]>(`https://fletnix-api-nap0.onrender.com/api/content/getContent`, { headers, params });
     } else {
       console.error('No authentication token found');
       this.router.navigate(['/login']);
@@ -71,7 +71,7 @@ export class ApiService {
   
     if (token) {
       const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-      return this.http.get<{ title: string }[]>(`http://localhost:5000/api/content/search`, { headers, params });
+      return this.http.get<{ title: string }[]>(`https://fletnix-api-nap0.onrender.com/api/content/search`, { headers, params });
     } else {
       console.error('No authentication token found');
       this.router.navigate(['/login']);
@@ -84,12 +84,12 @@ export class ApiService {
   addProfile(profileData: { name: string; age: number }): Observable<any> {
     const token = this.contextService.getContext().token;
     const headers = new HttpHeaders({ 'Authorization': `Bearer ${token}` });
-    return this.http.post(`http://localhost:5000/api/profile`, profileData, { headers });
+    return this.http.post(`https://fletnix-api-nap0.onrender.com/api/profile`, profileData, { headers });
   
   }
 
   pingServer(): Observable<string> {
-    return this.http.get<string>('http://localhost:5000/ping', { responseType: 'text' as 'json' });
+    return this.http.get<string>('https://fletnix-api-nap0.onrender.com/ping', { responseType: 'text' as 'json' });
   }
   
 }

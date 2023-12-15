@@ -17,6 +17,9 @@ import { DetailsComponent } from './details/details.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './footer/footer.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -52,6 +55,7 @@ const routes: Routes = [
     SeriesComponent,
     NavbarComponent,
     DetailsComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule,
     NoopAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

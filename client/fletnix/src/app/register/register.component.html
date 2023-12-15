@@ -18,6 +18,8 @@
                 <input type="number" placeholder="Age" [(ngModel)]="user.age" name="age" required>
                 <button type="submit" class="registerButton">Register</button>
             </form>
+
+            <mat-spinner color="warn" *ngIf="isLoading"></mat-spinner>
         </div>
     </div>
 </div>

@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
   loginData = { email: 'kartik@email.com', password: 'kartikishappy' };
+  isLoading = false;
 
   constructor(
     private apiService: ApiService, 
@@ -39,6 +40,8 @@ export class LoginComponent implements OnInit {
 
   onLogin(event: Event) {
     event.preventDefault();
+    this.isLoading = true;
+    
     this.apiService.loginUser(this.loginData).subscribe({
       next: (response) => {
         const { token, user } = response;
@@ -48,12 +51,15 @@ export class LoginComponent implements OnInit {
           isAuthenticated: true,
           token: token 
         });
+        this.isLoading = false; 
         this.openSnackBar('Success! Login in now', 'Close');
        this.router.navigate(['/profile-selection']);
       },
       error: (error) => {
-        this.openSnackBar('Something Went wrong! Please try again later', 'Close');
-        console.error('Login Error:', error);
+        this.isLoading = false;
+        this.openSnackBar(error.error.message, 'Close');
+        alert(error.error.message);
+        console.error('Login Error:', error.error.message);
       }
     });
   }
